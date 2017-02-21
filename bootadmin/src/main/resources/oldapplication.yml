@@ -1,0 +1,20 @@
+server:
+  port:8090
+  
+info:
+  version: @pom.version@
+  stage: bootadmin
+
+spring:
+  application:
+    name: @pom.artifactId@
+  boot:
+    admin:
+      url: http://localhost:8090
+  cloud:
+    config:
+      enabled: false
+
+endpoints:
+  health:
+    sensitive: false

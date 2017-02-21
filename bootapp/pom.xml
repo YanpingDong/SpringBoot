@@ -1,0 +1,155 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.tcl.demo</groupId>
+    <artifactId>myparents</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>bootapp</artifactId>
+  <packaging>war</packaging>
+  <name>bootapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+   <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-tomcat</artifactId>
+      <scope>provided</scope>
+    </dependency> 
+    <dependency>
+        <groupId>de.codecentric</groupId>
+        <artifactId>spring-boot-admin-starter-client</artifactId>
+    </dependency> 
+	<dependency>
+		<groupId>org.jolokia</groupId>
+		<artifactId>jolokia-core</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>com.tcl.demo</groupId>
+		<artifactId>utilities</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-lang3</artifactId>
+		<version>3.2.1</version>
+	</dependency>
+
+    <!-- For Spring AOP -->
+	<dependency>
+		<groupId>org.aspectj</groupId>
+		<artifactId>aspectjweaver</artifactId>
+	</dependency>
+
+
+	<dependency>
+		<groupId>se.jiderhamn</groupId>
+		<artifactId>classloader-leak-prevention</artifactId>
+		<version>1.13.0</version>
+	</dependency> 
+	
+	<dependency>
+      <groupId>org.glassfish.jersey.security</groupId>
+      <artifactId>oauth1-client</artifactId>
+    <version>2.22.2</version>
+</dependency>
+
+	<dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+	</dependency>
+	<dependency>
+     <groupId>org.glassfish.jersey.core</groupId>
+     <artifactId>jersey-client</artifactId>
+     <version>2.8</version>
+	</dependency>
+	<dependency>
+	     <groupId>org.glassfish.jersey.media</groupId>
+	     <artifactId>jersey-media-json-jackson</artifactId>
+	     <version>2.8</version>
+	 </dependency>
+	
+	 <dependency>
+	 	<groupId>org.glassfish.hk2</groupId>
+	 	<artifactId>hk2-api</artifactId>
+	 	<version>2.4.0-b34</version>
+	 </dependency>
+	 <!-- http://mvnrepository.com/artifact/com.googlecode.jmockit/jmockit -->
+	<dependency>
+	   <groupId>com.googlecode.jmockit</groupId>
+	   <artifactId>jmockit</artifactId>
+	   <version>1.7</version>
+	</dependency>
+	<!-- http://mvnrepository.com/artifact/com.googlecode.jmockit/jmockit-coverage -->
+	<dependency>
+	   <groupId>com.googlecode.jmockit</groupId>
+	   <artifactId>jmockit-coverage</artifactId>
+	   <version>0.999.26</version>
+	</dependency>
+  </dependencies>
+  
+  <reporting>
+	   <plugins>
+           <plugin>
+			    <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<version>2.12.2</version>
+				<configuration>
+				  <showSuccess>false</showSuccess>
+				</configuration>
+			</plugin>
+        </plugins>
+  </reporting>
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+		          <addResources>false</addResources>
+		        </configuration>
+			</plugin>
+			
+			<plugin>
+	            <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+				  <instrumentation>
+				    <excludes>
+				      <exclude>org/bootapp/dao/*.class</exclude>
+				      <exclude>org/bootapp/model/*.class</exclude>
+				      <exclude>org/bootapp/webconfig/*.class</exclude>
+				    </excludes>
+				  </instrumentation>
+				</configuration>
+            </plugin>
+            
+		</plugins>
+		
+		<resources>
+		   <resource>
+		      <directory>src/main/resources</directory>
+		      <filtering>true</filtering>
+		      <excludes>
+		          <exclude>application.properties</exclude>
+		          <exclude>application-dev.properties</exclude>
+		          <exclude>application-prd.properties</exclude>
+		      </excludes>
+		   </resource>
+		   <resource>
+		      <directory>src/main/resources</directory>
+		      <filtering>true</filtering>
+		      <includes>
+		          <include>application.properties</include>
+		          <include>application-${profileActive}.properties</include>
+		      </includes>
+		   </resource>
+		</resources>
+	</build>
+</project>

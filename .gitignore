@@ -1,0 +1,21 @@
+###############
+#    file     #
+###############
+*.class
+*.bak
+*.log
+*.prefs
+.classpath
+.project
+*.jar
+*.js
+*.html
+*.png
+#.css
+###############
+#    folder   #
+/.settings/
+/target/
+/bin/
+utilities/target/
+bootapp/coverage-report/
