@@ -89,7 +89,7 @@
 	   <groupId>com.googlecode.jmockit</groupId>
 	   <artifactId>jmockit-coverage</artifactId>
 	   <version>0.999.26</version>
-	</dependency>
+	</dependency> 
   </dependencies>
   
   <reporting>
