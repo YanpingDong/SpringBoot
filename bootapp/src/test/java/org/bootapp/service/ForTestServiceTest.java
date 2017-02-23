@@ -1,8 +1,5 @@
 package org.bootapp.service;
 
-import mockit.NonStrictExpectations;
-import mockit.Verifications;
-
 import org.bootapp.exception.handle.MyException;
 import org.bootapp.utilities.jmockit.test.BasedFunctionClass;
 import org.bootapp.utilities.jmockit.test.CompositeFunctionClass;
@@ -13,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.test.config.service.TestServiceSpringConfig;
+
+import mockit.Expectations;
+import mockit.Verifications;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = TestServiceSpringConfig.class)
@@ -57,10 +57,10 @@ public class ForTestServiceTest {
 	public void testCompositeFunction() {
 		final BasedFunctionClass basedFunctionClass = new BasedFunctionClass();
 		
-		new NonStrictExpectations(basedFunctionClass) {
+		new Expectations(basedFunctionClass) {
 			{
 				basedFunctionClass.basedFunction("info");
-				returns("hi info");
+				result = "hi info";
 			}
 		};
 		

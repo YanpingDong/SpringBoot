@@ -1,7 +1,6 @@
 package org.utilities.jmockit.test;
 
-import mockit.NonStrictExpectations;
-import mockit.Verifications;
+import mockit.*;
 
 import org.junit.Test;
 
@@ -11,10 +10,10 @@ public class CompositeFunctionClassTest {
 	public void testCompositeFunction() {
 		final BasedFunctionClass basedFunctionClass = new BasedFunctionClass();
 		
-		new NonStrictExpectations(basedFunctionClass) {
+		new Expectations(basedFunctionClass) {
 			{
 				basedFunctionClass.basedFunction("info");
-				returns("hi info");
+				result="hi info";
 			}
 		};
 		

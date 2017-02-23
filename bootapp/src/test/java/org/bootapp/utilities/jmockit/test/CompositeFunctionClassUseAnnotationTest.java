@@ -3,18 +3,14 @@ package org.bootapp.utilities.jmockit.test;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.bootapp.util.CommonUtil;
+import org.junit.Test;
+
 import mockit.Deencapsulation;
 import mockit.Expectations;
 import mockit.Injectable;
-import mockit.Mock;
-import mockit.MockUp;
-import mockit.NonStrictExpectations;
 import mockit.Tested;
 import mockit.Verifications;
-
-import org.bootapp.util.CommonUtil;
-import org.junit.Before;
-import org.junit.Test;
 
 public class CompositeFunctionClassUseAnnotationTest {
 	
@@ -43,10 +39,10 @@ public class CompositeFunctionClassUseAnnotationTest {
 	@Test
 	public void testCompositeFunction() {
 		 
-		new NonStrictExpectations(basedFunctionClass) {
+		new Expectations(basedFunctionClass) {
 			{
 				basedFunctionClass.basedFunction("info");
-				returns("hi info");
+				result ="hi info";
 			}
 		};
 		
@@ -67,7 +63,6 @@ public class CompositeFunctionClassUseAnnotationTest {
 		{
 			{
 				Deencapsulation.invoke(CommonUtil.class, "printTestInfo");  
-	            result = 100;  
 			}	
 		};
 		compositeFunctionClass.printInfo();
@@ -94,7 +89,7 @@ public class CompositeFunctionClassUseAnnotationTest {
 		};
 		URI uri = null;
 		try {
-			uri = new URI("www.ss.com");
+			uri = new URI("www.dyp.com");
 		} catch (URISyntaxException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
