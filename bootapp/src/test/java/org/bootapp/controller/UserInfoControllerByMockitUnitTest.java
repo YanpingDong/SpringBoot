@@ -1,4 +1,4 @@
-package org.bootapp.controller;
+/*package org.bootapp.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -45,21 +45,21 @@ public class UserInfoControllerByMockitUnitTest {
 		
 		MockitoAnnotations.initMocks(this);
 		
-		/*
+		
          * 如果要使用完全默认Spring Web Context, 例如不需要对Controller注入,
          * 则使用 WebApplicationContext mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
-         */
+         
 		
 		//======================================parting line==============================================
 		
-		/*
+		
 		 * Build a MockMvc instance by registering one or more @Controller instances and configuring Spring MVC infrastructure programmatically. 
 		 * This allows full control over the instantiation and initialization of controllers and their dependencies, 
 		 * similar to plain unit tests while also making it possible to test one controller at a time. 
 		 * When this builder is used, the minimum infrastructure required by the DispatcherServlet to serve requests with annotated controllers 
 		 * is created automatically and can be customized, 
 		 * resulting in configuration that is equivalent to what MVC Java configuration provides except using builder-style methods.  
-		 */
+		 
 		 mockMvc = MockMvcBuilders
 				     .standaloneSetup(userInfoController)
 				     .setControllerAdvice(new ControllerExcptionAdvice())
@@ -110,3 +110,4 @@ public class UserInfoControllerByMockitUnitTest {
 	}
 	
 }
+*/

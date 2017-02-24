@@ -18,8 +18,9 @@ public class CompositeFunctionClassTest {
 			}
 		};
 		
-		CompositeFunctionClass compositeFunctionClass = new CompositeFunctionClass();
-		compositeFunctionClass.setBasedFunctionClass(basedFunctionClass);
+		CompositeFunctionClass compositeFunctionClass = 
+				new CompositeFunctionClass(basedFunctionClass);
+		//compositeFunctionClass.setBasedFunctionClass(basedFunctionClass);
 		System.out.println(compositeFunctionClass.compositeFunction("info"));
 		
 		new Verifications() {

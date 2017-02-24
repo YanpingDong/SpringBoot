@@ -84,19 +84,7 @@
 	   <artifactId>jmockit</artifactId>
 	   <version>1.7</version>
 	</dependency> -->
-	<!-- https://mvnrepository.com/artifact/org.jmockit/jmockit -->
-	<dependency>
-	    <groupId>org.jmockit</groupId>
-	    <artifactId>jmockit</artifactId>
-	    <version>1.30</version>
-	    <scope>test</scope>
-	</dependency>
-	<!-- http://mvnrepository.com/artifact/com.googlecode.jmockit/jmockit-coverage -->
-	<dependency>
-	   <groupId>com.googlecode.jmockit</groupId>
-	   <artifactId>jmockit-coverage</artifactId>
-	   <version>0.999.26</version>
-	</dependency> 
+	
   </dependencies>
   
   <build> 

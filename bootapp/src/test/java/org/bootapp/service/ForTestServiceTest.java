@@ -64,15 +64,8 @@ public class ForTestServiceTest {
 			}
 		};
 		
-		CompositeFunctionClass compositeFunctionClass = new CompositeFunctionClass();
-		compositeFunctionClass.setBasedFunctionClass(basedFunctionClass);
+		CompositeFunctionClass compositeFunctionClass = new CompositeFunctionClass(basedFunctionClass);
 		System.out.println(compositeFunctionClass.compositeFunction("info"));
 		
-		new Verifications() {
-			{
-				basedFunctionClass.basedFunction("info");
-				times = 1;
-			}
-		};
 	}
 }

@@ -1,4 +1,4 @@
-package org.bootapp.service;
+/*package org.bootapp.service;
 
 import org.bootapp.dao.ForTestDao;
 import org.bootapp.exception.handle.MyException;
@@ -30,3 +30,4 @@ public class ServiceTestWithMockitoUnitTest {
 		System.out.println(fortestService.getInfo(0));
 	}
 }
+*/

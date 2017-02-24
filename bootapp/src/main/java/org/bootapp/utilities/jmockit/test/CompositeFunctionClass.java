@@ -6,7 +6,12 @@ import org.bootapp.util.CommonUtil;
 
 public class CompositeFunctionClass {
 	private BasedFunctionClass basedFunctionClass = null;
-
+    
+	public CompositeFunctionClass(BasedFunctionClass basedFunctionClass)
+	{
+		this.basedFunctionClass = basedFunctionClass;
+	}
+	
 	public BasedFunctionClass getBasedFunctionClass() {
 		return basedFunctionClass;
 	}
