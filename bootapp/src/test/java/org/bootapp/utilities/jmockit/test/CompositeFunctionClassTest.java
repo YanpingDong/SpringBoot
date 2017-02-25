@@ -23,12 +23,6 @@ public class CompositeFunctionClassTest {
 		//compositeFunctionClass.setBasedFunctionClass(basedFunctionClass);
 		System.out.println(compositeFunctionClass.compositeFunction("info"));
 		
-		new Verifications() {
-			{
-				basedFunctionClass.basedFunction("info");
-				times = 1;
-			}
-		};
 	}
 
 }
