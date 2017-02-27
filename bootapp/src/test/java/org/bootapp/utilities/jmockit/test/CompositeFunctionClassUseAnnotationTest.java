@@ -3,17 +3,15 @@ package org.bootapp.utilities.jmockit.test;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.bootapp.util.CommonUtil;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-
 import mockit.Deencapsulation;
 import mockit.Expectations;
 import mockit.Injectable;
 import mockit.Tested;
-import mockit.integration.junit4.JMockit;
+import mockit.Verifications;
 
-@RunWith(JMockit.class)
+import org.bootapp.util.CommonUtil;
+import org.junit.Test;
+
 public class CompositeFunctionClassUseAnnotationTest {
 	
 	@Tested
@@ -38,16 +36,21 @@ public class CompositeFunctionClassUseAnnotationTest {
 	@Test
 	public void testCompositeFunction() {
 		
-		
 		new Expectations(basedFunctionClass) {
 			{
-				basedFunctionClass.basedFunction("info");
+				basedFunctionClass.basedFunction(anyString);
 				result ="hi info";
+				times = 1;
 			}
 		};
 		
 		System.out.println(compositeFunctionClass.compositeFunction("info")+" test composite function");
 		
+        new Verifications(){{
+
+        	basedFunctionClass.basedFunction(anyString);times = 1;
+        	
+        }};
 	}
 	
 	@Test

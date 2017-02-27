@@ -25,7 +25,9 @@ public class ForTestAspect {
     public void beforeInit() throws Throwable {
 		RequestAttributes requestAttributes = RequestContextHolder.getRequestAttributes();
 		HttpServletRequest request = ((ServletRequestAttributes)requestAttributes).getRequest();
-        HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
+		
+        @SuppressWarnings("unused")
+		HttpServletResponse response = ((ServletRequestAttributes)requestAttributes).getResponse();
         logger.error("before in voke controller method " + request.getMethod() + " " + request.getRemoteAddr());
     }
     @After("pointCut()")

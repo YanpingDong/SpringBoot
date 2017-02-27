@@ -1,9 +1,8 @@
 package org.bootapp.utilities.jmockit.test;
 
-import org.junit.Test;
-
 import mockit.Expectations;
-import mockit.Verifications;
+
+import org.junit.Test;
 
 public class CompositeFunctionClassTest {
 
