@@ -1,4 +1,10 @@
 package org.bootapp.controller;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 import java.util.List;
 
 import javax.validation.Valid;
@@ -24,12 +30,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.wordnik.swagger.annotations.Api;
-import com.wordnik.swagger.annotations.ApiOperation;
-import com.wordnik.swagger.annotations.ApiParam;
-import com.wordnik.swagger.annotations.ApiResponse;
-import com.wordnik.swagger.annotations.ApiResponses;
-
 @Api(basePath = "/user/", value = "user", description = "CRUD user info", produces = "application/json")
 @RestController
 @RequestMapping(value = "/user/")
@@ -46,7 +46,7 @@ public class UserInfoController {
     } 
 
     @RequestMapping(value="{userid}", method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
-    @ApiOperation(value = "Get user info by user id", notes = "Get user info by user id ------please use this to describe detail ", response=String.class)
+    @ApiOperation(value = "Get user info by user id", notes = "Get user info by user id ------please use this to describe detail ")
 	@ApiResponses(value = {
             @ApiResponse(code = 400, message = "Fields are with validation errors",response=Error.class),
             @ApiResponse(code = 401, message = "Unauthorized",response=Error.class),
@@ -78,7 +78,7 @@ public class UserInfoController {
             @ApiResponse(code = 403, message = "Forbidden",response=Error.class),
             @ApiResponse(code = 404, message = "Not Found",response=Error.class)
             })
-    public User updateUserInfo(@ApiParam(value = "user json", required = true,defaultValue="{\"id\": 0,\"xxxName\": \"xxxx\"}" ) 
+    public User updateUserInfo(@ApiParam(value = "user json", required=true ) 
                                @RequestBody  @Valid User user, BindingResult result) throws MissingServletRequestParameterException {  
     	if(result.hasErrors())
     		throw new MissingServletRequestParameterException(result.getNestedPath(), result.getObjectName() );

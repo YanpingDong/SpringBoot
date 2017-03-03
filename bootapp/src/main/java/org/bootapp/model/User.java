@@ -1,25 +1,30 @@
 package org.bootapp.model;
 
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-
-@ApiModel(description = "")
-public class User {
-	private Long id; 
-	private String name;
+@ApiModel(description = "User infomation model")
+public class User {	
+	
 	@ApiModelProperty(value = "Unique identifier representing a specific product for a given latitude & longitude. For example,"
-			+ " uberX in San Francisco will have a different product_id than uberX in Los Angeles", required=true)
+			+ " uberX in San Francisco will have a different product_id than uberX in Los Angeles", required=false)
+	private Long id; 
+
+	@ApiModelProperty(value = "Lower bound of the estimated price", required=true,example="testName")
+	private String name;
+	
 	public Long getId() {
 		return id;
 	}
+	
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
-	 @ApiModelProperty(value = "Lower bound of the estimated price.",required=false)
-	 @JsonProperty("xxxName")
+	
+	
+	 //@JsonProperty("xxxName")
 	public String getName() {
 		return name;
 	}

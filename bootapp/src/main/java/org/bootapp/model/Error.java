@@ -1,9 +1,9 @@
 package org.bootapp.model;
 
-import javax.servlet.http.HttpServletRequest;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
-import com.wordnik.swagger.annotations.ApiModel;
-import com.wordnik.swagger.annotations.ApiModelProperty;
+import javax.servlet.http.HttpServletRequest;
 
 @ApiModel(description = "Uniform error info")
 public class Error {
